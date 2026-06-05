@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Dania 💜</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: Georgia;
+        text-align: center;
+        padding: 50px 20px;
+        margin: 0;
+      }
+
+      h1 {
+        color: purple;
+        font-size: 50px;
+        animation: aparecer 2s ease-in-out;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 2;
+        max-width: 600px;
+        margin: 20px auto;
+        color: #e0c8ff;
+        animation: aparecer 3s ease-in-out;
+      }
+
+      button {
+        margin-top: 30px;
+        padding: 15px 30px;
+        background-color: purple;
+        color: white;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 30px;
+        transition: 0.3s;
+        animation: aparecer 4s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #9b00ff;
+        transform: scale(1.1);
+      }
+
+      #corazones {
+        font-size: 40px;
+        margin-top: 20px;
+        animation: aparecer 1s;
+      }
+
+      @keyframes aparecer {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .estrellas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .estrella {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: brillar 2s infinite alternate;
+      }
+
+      @keyframes brillar {
+        from { opacity: 0.2; }
+        to { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="estrellas" id="estrellas"></div>
+
+    <h1>Para Dania 💜</h1>
+    <p>
+      "Dania, por más que peleemos yo te amo demasiado. Eres lo que más amo en esta vida y cada día que pasa me doy cuenta más de lo afortunado que soy de tenerte. He pensado en una vida a tu lado, en crecer contigo, en estar ahí en tus buenos y malos momentos. Quiero casarme contigo y formar una familia, tener dos hijos y ver cómo construimos juntos todo lo que soñamos. Eres mi persona favorita en este mundo y siempre lo serás."
+    </p>
+
+    <div id="corazones"></div>
+    <button onclick="enviarAmor()">Toca aquí 💜</button>
+
+    <script>
+      // Crear estrellas
+      var contenedor = document.getElementById("estrellas")
+      for (var i = 0; i < 100; i++) {
+        var estrella = document.createElement("div")
+        estrella.classList.add("estrella")
+        estrella.style.width = Math.random() * 3 + "px"
+        estrella.style.height = estrella.style.width
+        estrella.style.top = Math.random() * 100 + "%"
+        estrella.style.left = Math.random() * 100 + "%"
+        estrella.style.animationDelay = Math.random() * 2 + "s"
+        contenedor.appendChild(estrella)
+      }
+
+      // Corazones
+      function enviarAmor() {
+        var corazones = ["💜", "🖤", "🤍", "💜", "🖤"]
+        var div = document.getElementById("corazones")
+        div.innerHTML = ""
+        for (var i = 0; i < 10; i++) {
+          div.innerHTML += corazones[Math.floor(Math.random() * corazones.length)]
+        }
+      }
+    </script>
+  </body>
+</html>
