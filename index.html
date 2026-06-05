@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurante El Sabor</title>
+
     <style>
       * {
         margin: 0;
@@ -116,6 +117,16 @@
         padding: 20px;
         font-size: 14px;
       }
+      s
+     img {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px purple;
+}
     </style>
   </head>
   <body>
@@ -123,19 +134,19 @@
     <nav>
       <h1>🍽️ El Sabor</h1>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Menú</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
 
-    <div class="hero">
+    <div class="hero" id="inicio">
       <h2>Bienvenido a El Sabor</h2>
       <p>La mejor comida de la ciudad, hecha con amor</p>
-      <button>Ver Menú</button>
+      <button onclick="verMenu()">Ver Menú</button>
     </div>
 
-    <div class="menu">
+    <div class="menu" id="menu">
       <h2>Nuestros Platos</h2>
       <div class="platos">
         <div class="plato">
@@ -155,10 +166,59 @@
         </div>
       </div>
     </div>
-
+    <div style="background-color: #1a1a1a; text-align: center; padding: 60px 20px;">
+  <h2 style="color: #ff6b00; font-size: 36px; margin-bottom: 30px;">Nuestra Galería</h2>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=300&h=200&fit=crop" style="border-radius: 15px;">
+    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&h=200&fit=crop" style="border-radius: 15px;">
+    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&h=200&fit=crop" style="border-radius: 15px;">
+    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=200&fit=crop" style="border-radius: 15px;">
+    <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=300&h=200&fit=crop" style="border-radius: 15px;">
+    <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=300&h=200&fit=crop" style="border-radius: 15px;">
+  </div>
+</div>
+<div id="contacto" style="background-color: #2a2a2a; text-align: center; padding: 60px 20px;">
+  <h2 style="color: #ff6b00; font-size: 36px; margin-bottom: 30px;">Contáctanos</h2>
+  <p style="margin-bottom: 10px;">📍 Av. Principal 123, Lima</p>
+  <p style="margin-bottom: 10px;">📞 999 999 999</p>
+  <p style="margin-bottom: 30px;">🕐 Lunes a Domingo: 12pm - 10pm</p>
+  <a href="https://wa.me/51999999999" style="
+    background-color: #25D366;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+  ">💬 Escribir por WhatsApp</a>
+</div>
     <footer>
       <p>© 2026 El Sabor - Todos los derechos reservados</p>
     </footer>
+    <footer id="contacto"></footer>
+   <script>
+  function verMenu() {
+    document.querySelector(".menu").scrollIntoView({ behavior: "smooth" })
+  }
+</script>
+<script>
+  // Animacion al hacer scroll
+  var elementos = document.querySelectorAll(".plato, .menu h2, footer")
+  
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1"
+        entry.target.style.transform = "translateY(0)"
+      }
+    })
+  })
 
+  elementos.forEach(function(el) {
+    el.style.opacity = "0"
+    el.style.transform = "translateY(30px)"
+    el.style.transition = "0.6s ease"
+    observer.observe(el)
+  })
+</script>
   </body>
-</html>
+</html>   
