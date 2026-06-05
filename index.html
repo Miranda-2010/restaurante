@@ -3,118 +3,162 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Dania 💜</title>
+    <title>Restaurante El Sabor</title>
     <style>
-      body {
-        background-color: black;
-        color: white;
-        font-family: Georgia;
-        text-align: center;
-        padding: 50px 20px;
+      * {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      h1 {
-        color: purple;
-        font-size: 50px;
-        animation: aparecer 2s ease-in-out;
+      body {
+        font-family: Georgia;
+        color: white;
+        background-color: #1a1a1a;
       }
 
-      p {
-        font-size: 18px;
-        line-height: 2;
-        max-width: 600px;
-        margin: 20px auto;
-        color: #e0c8ff;
-        animation: aparecer 3s ease-in-out;
-      }
-
-      button {
-        margin-top: 30px;
+      nav {
+        background-color: #8B0000;
         padding: 15px 30px;
-        background-color: purple;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav h1 {
+        font-size: 24px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .hero {
+        background-color: #2a2a2a;
+        text-align: center;
+        padding: 100px 20px;
+      }
+
+      .hero h2 {
+        font-size: 50px;
+        color: #ff6b00;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+
+      .hero button {
+        padding: 15px 40px;
+        background-color: #ff6b00;
         color: white;
         border: none;
         font-size: 18px;
-        cursor: pointer;
         border-radius: 30px;
-        transition: 0.3s;
-        animation: aparecer 4s ease-in-out;
+        cursor: pointer;
       }
 
-      button:hover {
-        background-color: #9b00ff;
-        transform: scale(1.1);
+      .menu {
+        padding: 60px 20px;
+        text-align: center;
       }
 
-      #corazones {
-        font-size: 40px;
-        margin-top: 20px;
-        animation: aparecer 1s;
+      .menu h2 {
+        font-size: 36px;
+        color: #ff6b00;
+        margin-bottom: 40px;
       }
 
-      @keyframes aparecer {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+      .platos {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
       }
 
-      .estrellas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
+      .plato {
+        background-color: #2a2a2a;
+        padding: 30px;
+        border-radius: 15px;
+        width: 250px;
       }
 
-      .estrella {
-        position: absolute;
-        background: white;
-        border-radius: 50%;
-        animation: brillar 2s infinite alternate;
+      .plato h3 {
+        font-size: 22px;
+        color: #ff6b00;
+        margin-bottom: 10px;
       }
 
-      @keyframes brillar {
-        from { opacity: 0.2; }
-        to { opacity: 1; }
+      .plato p {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .plato span {
+        font-size: 20px;
+        color: #ff6b00;
+        font-weight: bold;
+      }
+
+      footer {
+        background-color: #8B0000;
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
       }
     </style>
   </head>
   <body>
-    <div class="estrellas" id="estrellas"></div>
 
-    <h1>Para Dania 💜</h1>
-    <p>
-      "Dania, por más que peleemos yo te amo demasiado. Eres lo que más amo en esta vida y cada día que pasa me doy cuenta más de lo afortunado que soy de tenerte. He pensado en una vida a tu lado, en crecer contigo, en estar ahí en tus buenos y malos momentos. Quiero casarme contigo y formar una familia, tener dos hijos y ver cómo construimos juntos todo lo que soñamos. Eres mi persona favorita en este mundo y siempre lo serás."
-    </p>
+    <nav>
+      <h1>🍽️ El Sabor</h1>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Menú</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
 
-    <div id="corazones"></div>
-    <button onclick="enviarAmor()">Toca aquí 💜</button>
+    <div class="hero">
+      <h2>Bienvenido a El Sabor</h2>
+      <p>La mejor comida de la ciudad, hecha con amor</p>
+      <button>Ver Menú</button>
+    </div>
 
-    <script>
-      // Crear estrellas
-      var contenedor = document.getElementById("estrellas")
-      for (var i = 0; i < 100; i++) {
-        var estrella = document.createElement("div")
-        estrella.classList.add("estrella")
-        estrella.style.width = Math.random() * 3 + "px"
-        estrella.style.height = estrella.style.width
-        estrella.style.top = Math.random() * 100 + "%"
-        estrella.style.left = Math.random() * 100 + "%"
-        estrella.style.animationDelay = Math.random() * 2 + "s"
-        contenedor.appendChild(estrella)
-      }
+    <div class="menu">
+      <h2>Nuestros Platos</h2>
+      <div class="platos">
+        <div class="plato">
+          <h3>🍗 Pollo a la Brasa</h3>
+          <p>Pollo dorado con papas fritas y ensalada</p>
+          <span>S/. 25</span>
+        </div>
+        <div class="plato">
+          <h3>🍝 Lomo Saltado</h3>
+          <p>Lomo fino con arroz y papas fritas</p>
+          <span>S/. 30</span>
+        </div>
+        <div class="plato">
+          <h3>🐟 Ceviche</h3>
+          <p>Ceviche fresco con leche de tigre</p>
+          <span>S/. 28</span>
+        </div>
+      </div>
+    </div>
 
-      // Corazones
-      function enviarAmor() {
-        var corazones = ["💜", "🖤", "🤍", "💜", "🖤"]
-        var div = document.getElementById("corazones")
-        div.innerHTML = ""
-        for (var i = 0; i < 10; i++) {
-          div.innerHTML += corazones[Math.floor(Math.random() * corazones.length)]
-        }
-      }
-    </script>
+    <footer>
+      <p>© 2026 El Sabor - Todos los derechos reservados</p>
+    </footer>
+
   </body>
 </html>
